@@ -8,3 +8,5 @@ declare global {
     ethereum?: MetaMaskInpageProvider; // Mark as optional with '?'
   }
 }
+
+export {};
