@@ -149,7 +149,7 @@ const Navbar = () => {
                 Resources
               </Link>
               <Link
-                to="/create"
+                to="/create-listing"
                 className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >
                 Create
@@ -257,7 +257,7 @@ const Navbar = () => {
                     Your Profile
                   </Link>
                   <Link
-                    to="/nfts"
+                    to="/my-listing"
                     className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
                   >
                     Your NFTs
@@ -393,7 +393,7 @@ const Navbar = () => {
             Resources
           </Link>
           <Link
-            to="/create"
+            to="/create-listing"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
             onClick={() => setIsMenuOpen(false)}
           >

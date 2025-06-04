@@ -3,9 +3,14 @@ import type { Signer, Provider } from "ethers";
 import FreelanceABI from "./FreelanceABI.json";
 import MarketPlaceABI from "./MarketplaceABI.json";
 
-const USDT_TOKEN = "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238";
-const FREELANCE_ADDRESS = "0xA605403AF85d75c40314A91Cb6F8D64136A5c4fe";
-const MARKETPLACE_ADDRESS = "0x5E45093075f938c49ac111dCfCC1e61670aC029f";
+const USDT_TOKEN = import.meta.env.REACT_APP_USDT_ADDRESS || import.meta.env.VITE_USDT_ADDRESS;
+const FREELANCE_ADDRESS = import.meta.env.REACT_APP_FREELANCE_ADDRESS || import.meta.env.VITE_FREELANCE_ADDRESS;
+const MARKETPLACE_ADDRESS = import.meta.env.REACT_APP_MARKETPLACE_ADDRESS || import.meta.env.VITE_MARKETPLACE_CONTRACT_ADDRESS;
+
+// Validate contract addresses
+if (!USDT_TOKEN) throw new Error("USDT contract address is not defined in environment variables.");
+if (!FREELANCE_ADDRESS) throw new Error("Freelance contract address is not defined in environment variables.");
+if (!MARKETPLACE_ADDRESS) throw new Error("Marketplace contract address is not defined in environment variables.");
 
 const ERC20_ABI = [
   "function approve(address spender, uint256 amount) public returns (bool)",
@@ -48,6 +53,7 @@ export const formatUSDT = (amount: bigint, decimals: number = 6): string => {
 };
 
 // Helper function to parse USDT amounts
-export const parseUSDT = (amount: string, decimals: number = 6): bigint => {
-  return ethers.parseUnits(amount, decimals);
-};
+export function parseUSDT(amount: string): bigint {
+  // USDT has 6 decimals
+  return ethers.parseUnits(amount, 6);
+}

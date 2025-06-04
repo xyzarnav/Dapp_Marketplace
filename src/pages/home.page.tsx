@@ -169,9 +169,17 @@ const HomePage = () => {
                   🎨
                 </span>{" "}
                 {/* Icon for NFT */}
-                <button className="bg-white text-blue-800 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-100 transition-colors duration-300 text-lg">
-                  Start Exploring
-                </button>
+                <div className="space-x-2">
+                  <button className="bg-white text-blue-800 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-100 transition-colors duration-300 text-lg">
+                    Start Exploring
+                  </button>
+                  <Link
+                    to="/create-listing"                        // ← add this link
+                    className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition text-lg"
+                  >
+                    Create NFT
+                  </Link>
+                </div>
               </div>
             </div>
           </Link>

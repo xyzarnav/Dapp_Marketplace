@@ -103,7 +103,7 @@ const Hero = () => {
           </Link>
           {activeIndex === 0 ? (
             <Link
-              to="/create"
+              to="/create-listing"
               className="px-8 py-3 bg-white text-gray-800 font-medium rounded-xl hover:bg-gray-100 transition"
             >
               Create NFT
