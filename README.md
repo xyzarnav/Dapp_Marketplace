@@ -1,54 +1,135 @@
-# React + TypeScript + Vite
+# 🛒 Dapp Marketplace & Freelancing Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A decentralized marketplace and freelancing platform built on Ethereum, enabling secure peer-to-peer transactions without intermediaries.
 
-Currently, two official plugins are available:
+## ⚡ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Decentralized Marketplace** - Buy/sell products with crypto payments
+- **Freelancing Platform** - Connect clients with service providers
+- **Smart Contract Escrow** - Secure automated payments
+- **Reputation System** - User ratings and reviews
+- **Multi-wallet Support** - MetaMask, WalletConnect integration
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Frontend:** React 18 • TypeScript • Vite • Tailwind CSS • Ethers.js  
+**Blockchain:** Solidity • Hardhat • OpenZeppelin • IPFS
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- MetaMask wallet
+
+### Installation
+```bash
+# Clone repository
+git clone https://github.com/xyzarnav/Dapp_Marketplace.git
+cd Dapp_Marketplace
+
+# Install dependencies
+npm install
+
+# Setup environment
+cp .env.example .env
+# Add your API keys to .env
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
+```bash
+# Start local blockchain
+npx hardhat node
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Deploy contracts
+npx hardhat run scripts/deploy.js --network localhost
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+# Start frontend
+npm run dev
 ```
+
+Open [http://localhost:5173](http://localhost:5173)
+
+## 📁 Project Structure
+
+```
+├── contracts/          # Smart contracts
+│   ├── Marketplace.sol
+│   ├── Freelance.sol
+│   └── Escrow.sol
+├── scripts/           # Deploy scripts
+├── test/             # Contract tests
+├── src/              # Frontend
+│   ├── components/
+│   ├── pages/
+│   └── hooks/
+└── hardhat.config.js
+```
+
+## 🔧 Smart Contracts
+
+### Core Functions
+
+**Marketplace**
+- `createListing()` - List products for sale
+- `purchaseProduct()` - Buy listed products
+- `completePurchase()` - Finalize transactions
+
+**Freelance**
+- `createProject()` - Post freelance jobs
+- `submitProposal()` - Submit work proposals
+- `acceptProposal()` - Accept freelancer bids
+
+## 🧪 Commands
+
+```bash
+# Test contracts
+npx hardhat test
+
+# Deploy to testnet
+npx hardhat run scripts/deploy.js --network sepolia
+
+# Verify contracts
+npx hardhat verify --network sepolia CONTRACT_ADDRESS
+
+# Frontend tests
+npm test
+```
+
+## 🌐 Environment Variables
+
+```env
+VITE_INFURA_PROJECT_ID=your_infura_id
+VITE_PINATA_API_KEY=your_pinata_key
+PRIVATE_KEY=your_private_key
+ETHERSCAN_API_KEY=your_etherscan_key
+```
+
+## 🚀 Deployment
+
+The platform supports deployment to:
+- **Ethereum Mainnet** - Production environment
+- **Sepolia Testnet** - Testing environment
+- **Polygon** - Layer 2 scaling solution
+
+## 🔐 Security Features
+
+- Reentrancy protection
+- Access control mechanisms
+- Input validation
+- Multi-signature support
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/new-feature`)
+3. Commit changes (`git commit -m 'Add new feature'`)
+4. Push to branch (`git push origin feature/new-feature`)
+5. Open Pull Request
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file
+
+---
+
+Built with ❤️ using React, TypeScript, Vite & Solidity
